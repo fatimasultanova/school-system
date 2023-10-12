@@ -39,16 +39,16 @@ public class GlobalData implements Serializable {
 //        classes.setName("11A");
 //        classes.setStudentsDynamicArray(new DynamicArray<Person>());
 //        dynamicArrayClass.add(classes);
-//                Classes classes = new Classes();
-//        classes.setName("11A");
-//        classes.setStudentsDynamicArray(new DynamicArray<Person>());
-//        dynamicArrayClass.add(classes);
+             //   Classes classes = new Classes("11A",dynamicArrayPerson);
+       // classes.setName("11A");
+        //classes.setStudentsDynamicArray(new DynamicArray<Person>());
+       // dynamicArrayClass.add(classes);
+
+
         dynamicArrayClass = FileUtils.readAllClasses(GlobalStrings.SAVE_CLASS_NAME);
-
         dynamicArrayPerson =  FileUtils.readAll(GlobalStrings.SAVE_FILE_NAME);
-        id=dynamicArrayPerson.getSize();
-
-
+            id = dynamicArrayPerson.size();
+            
 
     }
 

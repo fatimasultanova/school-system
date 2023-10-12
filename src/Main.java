@@ -18,9 +18,9 @@ public class Main {
     public static void main(String[] args) {
         LoginServiceInter loginService = new LoginService();
         ManagementInter management = new Management();
-        for(int i = 0 ; i<GlobalData.dynamicArrayPerson.getSize() ; i++){
-            System.out.println(GlobalData.dynamicArrayPerson.get(i));
-        }
+//        for(int i = 0 ; i<GlobalData.dynamicArrayPerson.size() ; i++){
+//            System.out.println(GlobalData.dynamicArrayPerson.get(i));
+//        }
 
         boolean sign = true;
         while (sign) {

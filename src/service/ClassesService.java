@@ -20,7 +20,7 @@ public class ClassesService implements ClassesServiceInter {
         InputUtil.printClasses();
         Classes selectedClass = null;
         String selectedClassName = InputUtil.inputString("Choose class: ");
-        for (int i = 0; i < GlobalData.dynamicArrayClass.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayClass.size(); i++) {
             Classes classes = (Classes) GlobalData.dynamicArrayClass.get(i);
             if (classes.getName().equalsIgnoreCase(selectedClassName)){
                 selectedClass=classes;
@@ -33,7 +33,7 @@ public class ClassesService implements ClassesServiceInter {
     }
     private Student getStudentById(int id) {
         Student student = null;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student selectedStudent = (Student) person;

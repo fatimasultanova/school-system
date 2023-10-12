@@ -14,7 +14,7 @@ public class TeacherService implements TeacherServiceInter {
 
     @Override
     public void seeAllStudents() {
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student student = (Student) person;
@@ -25,10 +25,10 @@ public class TeacherService implements TeacherServiceInter {
 
     @Override
     public void seeAllClasses() {
-        for (int i = 0; i < GlobalData.dynamicArrayClass.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayClass.size(); i++) {
             Classes classes = GlobalData.dynamicArrayClass.get(i);
             System.out.println(classes.getName());
-            for (int j = 0; j < classes.getStudentsDynamicArray().getSize(); j++) {
+            for (int j = 0; j < classes.getStudentsDynamicArray().size(); j++) {
                 Student student = (Student) classes.getStudentsDynamicArray().get(j);
                 System.out.println(student);
             }

@@ -9,7 +9,8 @@ import java.io.*;
 
 public class FileUtils implements Serializable {
     public static void saveAll(String file) {
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true); ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(GlobalData.dynamicArrayPerson);
             objectOutputStream.flush();
         } catch (IOException ex) {
@@ -32,7 +33,8 @@ public class FileUtils implements Serializable {
 
 
     public static void saveAllClasses(String file) {
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true); ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(GlobalData.dynamicArrayClass);
             objectOutputStream.flush();
         } catch (IOException ex) {

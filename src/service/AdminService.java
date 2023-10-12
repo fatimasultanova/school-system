@@ -50,7 +50,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
            int id = GlobalData.id++;
            LocalDate birtday = LocalDate.of(InputUtil.inputInt("Year: "), InputUtil.inputInt("Month: "), InputUtil.inputInt("Day: "));
-           InputUtil.printClasses();
+          // InputUtil.printClasses();
            Classes class1 = getClasses();
            if (class1 == null) {
                throw new AppException(CLASS_NOT_FOUND);
@@ -71,7 +71,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void deleteUserById(int id) {
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student student = (Student) person;
@@ -101,7 +101,7 @@ public class AdminService implements AdminServiceInter, Serializable {
     @Override
     public void updateUserById(int id) {
         boolean username = true;
-        for (int i=0;i<GlobalData.dynamicArrayPerson.getSize();i++){
+        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student student = (Student) person;
@@ -141,7 +141,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void blockUserById(int id) {
-        for (int i=0;i<GlobalData.dynamicArrayPerson.getSize();i++){
+        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
@@ -168,7 +168,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void unBlockUserById(int id) {
-        for (int i=0;i<GlobalData.dynamicArrayPerson.getSize();i++){
+        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
@@ -195,7 +195,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void searchUserByName(String name) {
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             String getName = GlobalData.dynamicArrayPerson.get(i).getName().toLowerCase();
             name = name.toLowerCase();
             if (getName.contains(name)) {
@@ -207,7 +207,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void changePaswordForAnyUser(int id) {
-        for (int i = 0;i<GlobalData.dynamicArrayPerson.getSize();i++){
+        for (int i = 0;i<GlobalData.dynamicArrayPerson.size();i++){
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
@@ -236,7 +236,7 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void searchUserById(int id) {
-        for (int i = 0;i<GlobalData.dynamicArrayPerson.getSize();i++){
+        for (int i = 0;i<GlobalData.dynamicArrayPerson.size();i++){
             Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
@@ -274,10 +274,10 @@ public class AdminService implements AdminServiceInter, Serializable {
         return username;
     }
 
-    public static Classes getClasses(){
+    public Classes getClasses(){
         InputUtil.printClasses();
         String className = InputUtil.inputString("Choose class: ");
-        for (int i = 0; i < GlobalData.dynamicArrayClass.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayClass.size(); i++) {
             Classes classes = (Classes) GlobalData.dynamicArrayClass.get(i);
             if (classes.getName().equalsIgnoreCase(className)){
                 return classes;

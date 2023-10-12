@@ -3,11 +3,11 @@ package users;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+
 public abstract class Person implements Serializable {
     public String name;
     public String surname;
     public LocalDate birthday;
-
 
     public Person(String name, String surname, LocalDate birthday) {
         this.name = name;

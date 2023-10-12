@@ -41,6 +41,7 @@ public class DynamicArray<T> implements Serializable {
         public T get(int index){
        try {
            if (index<0 || index>= persons.length){
+               System.out.println("Wrong index!");
 
                //throw new IllegalArgumentException();
            }
@@ -50,7 +51,7 @@ public class DynamicArray<T> implements Serializable {
         return (T) persons[index];
     }
 
-    public int getSize(){
+    public int size(){
         return persons.length;
     }
 

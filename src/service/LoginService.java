@@ -15,7 +15,7 @@ public class LoginService implements LoginServiceInter {
     public Person login(String username) {
         boolean isFound=false;
         boolean adminSing = true;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Admin) {
                 Admin admin = (Admin) person;

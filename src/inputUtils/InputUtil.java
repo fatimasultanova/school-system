@@ -31,7 +31,7 @@ public class InputUtil {
 
     public static boolean printUsers() {
         boolean isFounded = false;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 isFounded = true;
@@ -50,7 +50,7 @@ public class InputUtil {
 
     public static boolean printUnblocks() {
         boolean isFounded = false;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 isFounded = true;
@@ -73,7 +73,7 @@ public class InputUtil {
 
     public static boolean printBlocks() {
         boolean isFounded = false;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 isFounded = true;
@@ -95,7 +95,7 @@ public class InputUtil {
 
     public static boolean printStudents() {
         boolean isFounded = false;
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
             Person person = GlobalData.dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 isFounded = true;
@@ -107,7 +107,7 @@ public class InputUtil {
     }
 
     public static void printClasses() {
-        for (int i = 0; i < GlobalData.dynamicArrayClass.getSize(); i++) {
+        for (int i = 0; i < GlobalData.dynamicArrayClass.size(); i++) {
             Classes classes = GlobalData.dynamicArrayClass.get(i);
             System.out.println(classes.getName());
         }
