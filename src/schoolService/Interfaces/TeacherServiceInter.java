@@ -1,4 +1,4 @@
-package service.Interfaces;
+package schoolService.Interfaces;
 
 public interface TeacherServiceInter {
     void seeAllStudents();

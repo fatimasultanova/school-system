@@ -5,12 +5,13 @@ import static exceptions.EnumException.*;
 import inputUtils.FileUtils;
 import inputUtils.InputUtil;
 import menuEnums.*;
-import service.AdminService;
-import service.Interfaces.AdminServiceInter;
-import service.Interfaces.StudentServiceInter;
-import service.Interfaces.TeacherServiceInter;
-import service.StudentService;
-import service.TeacherService;
+
+import schoolService.AdminService;
+import schoolService.Interfaces.AdminServiceInter;
+import schoolService.Interfaces.StudentServiceInter;
+import schoolService.Interfaces.TeacherServiceInter;
+import schoolService.StudentService;
+import schoolService.TeacherService;
 import users.Person;
 
 import java.time.LocalDateTime;
@@ -147,6 +148,9 @@ public class Management implements ManagementInter {
                     break;
                 case 3:
                     return studentService.backToLogin();
+                case 4:
+                    studentService.exam();
+                    break;
                 case 0:
                     studentService.exit();
                     break;

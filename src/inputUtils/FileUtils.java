@@ -1,11 +1,12 @@
 package inputUtils;
 
+import baseSystem.GlobalStrings;
 import classes.Classes;
-import dynamicArrays.DynamicArray;
 import globalData.GlobalData;
 import users.Person;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileUtils implements Serializable {
     public static void saveAll(String file) {
@@ -18,11 +19,12 @@ public class FileUtils implements Serializable {
         }
     }
 
-    public static DynamicArray<Person> readAll(String file) {
-        try (FileInputStream fileInputStream = new FileInputStream(file); ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
-            DynamicArray<Person> personDynamicArray = (DynamicArray<Person>) objectInputStream.readObject();
+    public static ArrayList<Person> readAll(String file) {
+        try (FileInputStream fileInputStream = new FileInputStream(file); ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+           ArrayList<Person> personArrayList = (ArrayList<Person>) objectInputStream.readObject();
+            return personArrayList;
 //            System.out.println(personDynamicArray.get(0));
-            return personDynamicArray;
+           // return personDynamicArray;
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -42,11 +44,12 @@ public class FileUtils implements Serializable {
         }
     }
 
-    public static DynamicArray<Classes> readAllClasses(String file) {
+    public static ArrayList<Classes> readAllClasses(String file) {
         try (FileInputStream fileInputStream = new FileInputStream(file);
-             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
-            DynamicArray<Classes> classesDynamic = (DynamicArray<Classes>) objectInputStream.readObject();
-            return classesDynamic;
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+            ArrayList<Classes> classesArrayList = (ArrayList<Classes>) objectInputStream.readObject();
+            return  classesArrayList;
+           // return classesDynamic;
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {

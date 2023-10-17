@@ -1,10 +1,11 @@
-package service;
+package schoolService;
 
 import baseSystem.GlobalStrings;
 import globalData.GlobalData;
 import inputUtils.FileUtils;
 import inputUtils.InputUtil;
-import service.Interfaces.LoginServiceInter;
+import schoolService.Interfaces.LoginServiceInter;
+import schoolService.Interfaces.LoginServiceInter;
 import users.Admin;
 import users.Person;
 import users.Student;

@@ -1,14 +1,17 @@
-package service;
+package schoolService;
 
 import baseSystem.GlobalStrings;
 import classes.Classes;
 import exceptions.AppException;
 import static exceptions.EnumException.*;
+import static globalData.GlobalData.dynamicArrayPerson;
+
 import globalData.GlobalData;
 import inputUtils.FileUtils;
 import inputUtils.InputUtil;
-import service.Interfaces.AdminServiceInter;
-import service.Interfaces.ClassesServiceInter;
+import schoolService.Interfaces.AdminServiceInter;
+import schoolService.Interfaces.AdminServiceInter;
+import schoolService.Interfaces.ClassesServiceInter;
 import users.Person;
 import users.Student;
 import users.Teacher;
@@ -32,7 +35,8 @@ public class AdminService implements AdminServiceInter, Serializable {
         Student student = new Student(id,email,username,pasword,name,surname,birtday);
         String log = "Student with id: "+id+" added with name: "+name+" "+surname+" "+ "Time: "+ LocalDateTime.now()+ " By admin: " + GlobalData.loginPerson.getName();
         FileUtils.applicationLogs(GlobalStrings.FILE_NAME,log);
-        GlobalData.dynamicArrayPerson.add(student);
+        dynamicArrayPerson.add(student);
+        FileUtils.saveAll(GlobalStrings.SAVE_FILE_NAME);
         System.out.println("Student " + name +" added successfully!" + "(Username:) "+ username);
     }
 
@@ -58,7 +62,8 @@ public class AdminService implements AdminServiceInter, Serializable {
            Teacher teacher = new Teacher(id, email, username, pasword, class1, salary, name, surname, birtday);
            String log = "Teacher with id: " + id + " added with name: " + name + " " + surname + " " + "Time: " + LocalDateTime.now() + " By admin: " + GlobalData.loginPerson.getName();
            FileUtils.applicationLogs(GlobalStrings.FILE_NAME, log);
-           GlobalData.dynamicArrayPerson.add(teacher);
+           dynamicArrayPerson.add(teacher);
+           FileUtils.saveAll(GlobalStrings.SAVE_FILE_NAME);
            System.out.println("Teacher " + teacher.getUsername() + " added successfully!");
 
        }catch (Exception ex){
@@ -71,15 +76,16 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void deleteUserById(int id) {
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i < dynamicArrayPerson.size(); i++) {
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student student = (Student) person;
                 if (student.getId() == id) {
                     String log = "Student deleted with id: "+id+ " "+"Name: "+person.getName()+" "+person.getSurname()+" "+ "Time: "+ LocalDateTime.now()+ " By admin: " + GlobalData.loginPerson.getName();
                     FileUtils.applicationLogs(GlobalStrings.FILE_NAME,log);
-                    GlobalData.dynamicArrayPerson.delete(i);
+                    dynamicArrayPerson.remove(i);
                     System.out.println("Student " + student.getId() + " has been deleted successfully!");
+
                     return;
                 }
             }
@@ -88,7 +94,7 @@ public class AdminService implements AdminServiceInter, Serializable {
                 if (teacher.getId() == id) {
                     String log = "Teacher deleted with id: "+id+ " "+"Name: "+person.getName()+" "+person.getSurname()+" "+ "Time: "+ LocalDateTime.now()+ " By admin: " + GlobalData.loginPerson.getName();
                     FileUtils.applicationLogs(GlobalStrings.FILE_NAME,log);
-                    GlobalData.dynamicArrayPerson.delete(i);
+                    dynamicArrayPerson.remove(i);
                     System.out.println("Teacher " + teacher.getId() + " has been deleted successfully!");
                     return;
                 }
@@ -101,8 +107,8 @@ public class AdminService implements AdminServiceInter, Serializable {
     @Override
     public void updateUserById(int id) {
         boolean username = true;
-        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i< dynamicArrayPerson.size(); i++){
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student) {
                 Student student = (Student) person;
                 String oldName = student.getName();
@@ -141,8 +147,8 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void blockUserById(int id) {
-        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i< dynamicArrayPerson.size(); i++){
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
                 if (student.getId()==id) {
@@ -168,8 +174,8 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void unBlockUserById(int id) {
-        for (int i=0;i<GlobalData.dynamicArrayPerson.size();i++){
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i< dynamicArrayPerson.size(); i++){
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
                 if (student.getId()==id) {
@@ -195,11 +201,11 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void searchUserByName(String name) {
-        for (int i = 0; i < GlobalData.dynamicArrayPerson.size(); i++) {
-            String getName = GlobalData.dynamicArrayPerson.get(i).getName().toLowerCase();
+        for (int i = 0; i < dynamicArrayPerson.size(); i++) {
+            String getName = dynamicArrayPerson.get(i).getName().toLowerCase();
             name = name.toLowerCase();
             if (getName.contains(name)) {
-                System.out.println(GlobalData.dynamicArrayPerson.get(i));
+                System.out.println(dynamicArrayPerson.get(i));
             }
         }
     }
@@ -207,8 +213,8 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void changePaswordForAnyUser(int id) {
-        for (int i = 0;i<GlobalData.dynamicArrayPerson.size();i++){
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i< dynamicArrayPerson.size(); i++){
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
                 if (student.getId()==id){
@@ -236,8 +242,8 @@ public class AdminService implements AdminServiceInter, Serializable {
 
     @Override
     public void searchUserById(int id) {
-        for (int i = 0;i<GlobalData.dynamicArrayPerson.size();i++){
-            Person person = (Person) GlobalData.dynamicArrayPerson.get(i);
+        for (int i = 0; i< dynamicArrayPerson.size(); i++){
+            Person person = (Person) dynamicArrayPerson.get(i);
             if (person instanceof Student){
                 Student student = (Student) person;
                 if (student.getId()==id){

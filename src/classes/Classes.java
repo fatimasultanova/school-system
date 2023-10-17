@@ -1,21 +1,20 @@
 package classes;
-
-import dynamicArrays.DynamicArray;
 import users.Person;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Classes implements Serializable {
     private static final long serialVersionUID = 2384521069861473841L;
     private String name;
-    private DynamicArray<Person> studentsDynamicArray;
+    private ArrayList<Person> studentsDynamicArray;
 
     public Classes() {
 
     }
 
-    public Classes(String name, DynamicArray<Person> studentsDynamicArray) {
+    public Classes(String name, ArrayList<Person> studentsDynamicArray) {
         this.name = name;
         this.studentsDynamicArray = studentsDynamicArray;
     }
@@ -28,11 +27,11 @@ public class Classes implements Serializable {
         this.name = name;
     }
 
-    public DynamicArray<Person> getStudentsDynamicArray() {
+    public ArrayList<Person> getStudentsDynamicArray() {
         return studentsDynamicArray;
     }
 
-    public void setStudentsDynamicArray(DynamicArray<Person> studentsDynamicArray) {
+    public void setStudentsDynamicArray(ArrayList<Person> studentsDynamicArray) {
         this.studentsDynamicArray = studentsDynamicArray;
     }
 

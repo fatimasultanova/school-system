@@ -1,9 +1,10 @@
-package service;
+package schoolService;
 
 import baseSystem.GlobalStrings;
+import inputUtil.MenuUtil;
 import inputUtils.FileUtils;
 import inputUtils.InputUtil;
-import service.Interfaces.StudentServiceInter;
+import schoolService.Interfaces.StudentServiceInter;
 import users.Person;
 import users.Student;
 
@@ -31,6 +32,10 @@ public class StudentService implements StudentServiceInter {
     @Override
     public boolean backToLogin() {
         return true;
+    }
+
+    public void exam(){
+        service.Management.management();
     }
 
     @Override
