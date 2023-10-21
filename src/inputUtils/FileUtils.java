@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class FileUtils implements Serializable {
     public static void saveAll(String file) {
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(GlobalData.dynamicArrayPerson);
             objectOutputStream.flush();
@@ -35,7 +35,7 @@ public class FileUtils implements Serializable {
 
 
     public static void saveAllClasses(String file) {
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file,true);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(GlobalData.dynamicArrayClass);
             objectOutputStream.flush();

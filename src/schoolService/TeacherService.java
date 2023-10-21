@@ -52,6 +52,7 @@ public class TeacherService implements TeacherServiceInter {
         @Override
         public void exit () {
             FileUtils.saveAll(GlobalStrings.SAVE_FILE_NAME);
+            FileUtils.saveAllClasses(GlobalStrings.SAVE_CLASS_NAME);
             System.exit(0);
         }
     }

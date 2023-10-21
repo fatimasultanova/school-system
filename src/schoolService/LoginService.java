@@ -92,6 +92,7 @@ public class LoginService implements LoginServiceInter {
         @Override
         public void exit () {
             FileUtils.saveAll(GlobalStrings.SAVE_FILE_NAME);
+            FileUtils.saveAllClasses(GlobalStrings.SAVE_CLASS_NAME);
             System.out.println("Program is stopped!");
             System.exit(0);
 

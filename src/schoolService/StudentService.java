@@ -5,6 +5,7 @@ import inputUtil.MenuUtil;
 import inputUtils.FileUtils;
 import inputUtils.InputUtil;
 import schoolService.Interfaces.StudentServiceInter;
+import service.Management;
 import users.Person;
 import users.Student;
 
@@ -35,12 +36,13 @@ public class StudentService implements StudentServiceInter {
     }
 
     public void exam(){
-        service.Management.management();
+        Management.management();
     }
 
     @Override
     public void exit() {
         FileUtils.saveAll(GlobalStrings.SAVE_FILE_NAME);
+        FileUtils.saveAllClasses(GlobalStrings.SAVE_CLASS_NAME);
         System.exit(0);
 
     }
